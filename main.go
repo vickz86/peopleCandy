@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/vickz86/peopleCandy/candy"
 	con "github.com/vickz86/peopleCandy/constructor"
 	data "github.com/vickz86/peopleCandy/data"
 )
@@ -30,7 +31,7 @@ var Peoples = []data.People{
 
 func main() {
 	//print string
-	possibleToDo := "choose between\n 0 exit\n1 add person\n2 print people\n"
+	possibleToDo := "choose between\n 0 exit\n1 add person\n2 print people\n3 print money of people"
 	var toDo int
 
 	//loop action
@@ -46,10 +47,21 @@ func main() {
 			Peoples = con.CreatePeople(Peoples)
 		case 2:
 			fmt.Println(Peoples)
+		case 3:
+			PrintTotalMoney(Peoples)
 		}
 
 	}
 
 }
 
-/* TODO , package money , create switch */
+/* =====FUNCTION===== */
+
+func PrintTotalMoney(slicePeople []data.People) {
+	for _, people := range slicePeople {
+		totalmoney := candy.PeopleTotalMoney(people)
+
+		fmt.Printf("%s has %d in cash and %d in total\n", people.Name, people.Money, totalmoney)
+
+	}
+}
