@@ -2,10 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/vickz86/peopleCandy/candy"
-	con "github.com/vickz86/peopleCandy/constructor"
 	data "github.com/vickz86/peopleCandy/data"
 )
 
@@ -30,32 +28,44 @@ var Peoples = []data.People{
 //start main
 
 func main() {
-	//print string
-	possibleToDo := "choose between\n 0 exit\n1 add person\n2 print people\n3 print money of people\n4 print who has more candy\n"
-	var toDo int
+	fmt.Println(Peoples[1])
+	newPeople := candy.BuyCandys(Peoples[1])
+	fmt.Println(newPeople)
 
-	//loop action
-	for {
-		//print and get action
-		fmt.Print(possibleToDo)
-		fmt.Scan(&toDo)
-		//swictch what to do
-		switch toDo {
-		case 0:
-			os.Exit(1)
-		case 1:
-			Peoples = con.CreatePeople(Peoples)
-		case 2:
-			fmt.Println(Peoples)
-		case 3:
-			PrintTotalMoney(Peoples)
-		case 4:
-			name, maxVal := candy.WhoMoreCandy(Peoples)
-			fmt.Printf("%s has more candies with %d candies\n", name, maxVal)
-		}
 
-	}
 
+	/* 	//print string
+	   	possibleToDo := "choose between\n 0 exit\n1 add person\n2 print people\n3 print money of people\n4 print who has more candy\n"
+	   	var toDo int
+
+	   	//loop action
+	   	for {
+	   		//print and get action
+	   		fmt.Print(possibleToDo)
+	   		fmt.Scan(&toDo)
+	   		//swictch what to do
+	   		switch toDo {
+	   		case 0:
+	   			os.Exit(1)
+	   		case 1:
+	   			Peoples = con.CreatePeople(Peoples)
+	   		case 2:
+	   			fmt.Println(Peoples)
+	   		case 3:
+	   			PrintTotalMoney(Peoples)
+	   		case 4:
+	   			name, maxVal := candy.WhoMoreCandy(Peoples)
+	   			fmt.Printf("%s has more candies with %d candies\n", name, maxVal)
+	   			//check if victor or jonathan has more candies
+	   			switch name {
+	   			case "victor", "jonathan":
+	   				fmt.Println("the brother has more candies!")
+
+	   			}
+	   		}
+
+	   	}
+	*/
 }
 
 /* TODO find richest , buy candy */
