@@ -31,7 +31,7 @@ var Peoples = []data.People{
 
 func main() {
 	//print string
-	possibleToDo := "choose between\n 0 exit\n1 add person\n2 print people\n3 print money of people"
+	possibleToDo := "choose between\n 0 exit\n1 add person\n2 print people\n3 print money of people\n4 print who has more candy\n"
 	var toDo int
 
 	//loop action
@@ -49,12 +49,16 @@ func main() {
 			fmt.Println(Peoples)
 		case 3:
 			PrintTotalMoney(Peoples)
+		case 4:
+			name, maxVal := candy.WhoMoreCandy(Peoples)
+			fmt.Printf("%s has more candies with %d candies\n", name, maxVal)
 		}
 
 	}
 
 }
 
+/* TODO find richest , buy candy */
 /* =====FUNCTION===== */
 
 func PrintTotalMoney(slicePeople []data.People) {
